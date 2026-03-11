@@ -18,12 +18,11 @@ export default function SplashScreen() {
           loop={true} 
           className="w-80 h-80 drop-shadow-2xl mb-4" 
         />
-        
-        <h1 className="text-4xl font-bold text-white mb-2 drop-shadow-md tracking-tight">CIT Chennai</h1>
-        <p className="text-xl text-white opacity-90 mb-8 drop-shadow">College Dashboard</p>
+        <h1 className="text-4xl font-bold text-cit-dark mb-2 tracking-tight">CIT Chennai</h1>
+        <p className="text-xl text-cit-dark/80 font-medium mb-8">College Dashboard</p>
 
-        <div className="px-6 py-2 bg-white/20 rounded-full backdrop-blur-sm border border-white/30">
-          <p className="text-white font-semibold text-sm tracking-widest uppercase animate-pulse">Loading Platform</p>
+        <div className="px-6 py-2 bg-white/40 rounded-full backdrop-blur-md border border-white/50 shadow-sm">
+          <p className="text-cit-dark font-bold text-sm tracking-widest uppercase animate-pulse">Loading Platform</p>
         </div>
       </div>
     </div>
