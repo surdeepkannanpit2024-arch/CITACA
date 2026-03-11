@@ -31,7 +31,7 @@ export default function StudentDashboard({ onLogout }) {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
+    <div className="min-h-screen bg-gray-50 pb-32 relative">
       {/* Header */}
       <div className="sticky top-0 z-50 bg-gradient-to-r from-cit-yellow to-cit-gold shadow-lg">
         <div className="max-w-md mx-auto px-4 py-4 flex items-center justify-between">
@@ -83,23 +83,7 @@ export default function StudentDashboard({ onLogout }) {
           </div>
         </div>
 
-        {/* Quick Links */}
-        <h2 className="text-lg font-bold text-cit-dark mb-4">Quick Access</h2>
-        <div className="grid grid-cols-3 gap-4 mb-8">
-          {quickLinks.map((link) => {
-            const Icon = link.icon
-            return (
-              <Link
-                key={link.id}
-                to={link.path}
-                className={`bg-gradient-to-br ${link.color} rounded-xl p-4 text-white font-semibold text-center shadow-lg hover:shadow-xl transform hover:scale-105 transition-all`}
-              >
-                <Icon className="w-6 h-6 mx-auto mb-2" />
-                <div className="text-sm">{link.label}</div>
-              </Link>
-            )
-          })}
-        </div>
+        {/* Quick Access Grid Removed and transformed into Bottom Dock */}
 
         {/* Announcements */}
         <h2 className="text-lg font-bold text-cit-dark mb-4">Latest Announcements</h2>
@@ -135,6 +119,28 @@ export default function StudentDashboard({ onLogout }) {
         {/* Wellness Card */}
         <div className="bg-gradient-to-br from-pink-200 to-purple-200 rounded-xl p-6 text-center text-cit-dark font-semibold">
           🌟 Take care of your mental health. Click to access wellness resources.
+        </div>
+      </div>
+
+      {/* Floating Bottom Navigation Dock */}
+      <div className="fixed bottom-6 left-4 right-4 max-w-md mx-auto z-50 animate-slide-up">
+        <div className="bg-white/80 backdrop-blur-xl shadow-2xl rounded-3xl p-3 border border-white flex justify-around items-center">
+          {/* Quick Access items in the dock */}
+          {quickLinks.slice(0, 5).map((link) => {
+            const Icon = link.icon;
+            return (
+              <Link
+                key={link.id}
+                to={link.path}
+                className="flex flex-col items-center p-2 rounded-2xl hover:bg-gray-100 transition-colors"
+              >
+                <div className={`w-12 h-12 bg-gradient-to-br ${link.color} rounded-full flex items-center justify-center shadow-md mb-1 transform hover:scale-110 transition-transform`}>
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <span className="text-[10px] font-bold text-gray-600">{link.label}</span>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>
